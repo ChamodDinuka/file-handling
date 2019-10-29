@@ -20,7 +20,7 @@ const int MAXSUBJECTS=10;
 const int MAXSTUDENT=100;
 subject x[10];
 int i=0,j=0,k,n,MAX;
-//void Display_sub();
+void Display_sub();
 //void Display_stu();
 //void sub_sum();
 //void save();
@@ -66,7 +66,7 @@ int main(){
 	    	cin>>n;
 	    	switch(n){
 	    		case 1:
-	    		//	Display_sub();
+	    			Display_sub();
 	    			break;
 	    		case 2:
 	    		//	Display_stu();
@@ -86,4 +86,31 @@ int main(){
 			}
 	   
 	   }
+}
+void Display_sub(){
+	string name;
+	cout<<"enter subject code"<<endl;
+	cin>>name;
+	i=0;
+	while(x[i].subname!=name){
+		i=i+1;
+		if(i==MAX){
+		
+    	cout<<"\nERROR :subject code is not found \n";
+    	break;}
+	}
+	for(j=0;j<x[i].num;j++){
+		cout<<x[i].regnum[j]<<" "<<x[i].marks[j]<<" ";
+		if(x[i].marks[j]<30){
+			cout<<"F\n";
+		}else if(x[i].marks[j]>=30 && x[i].marks[j]<40){
+			cout<<"D\n";
+		}else if(x[i].marks[j]>=40 && x[i].marks[j]<55){
+			cout<<"C\n";
+		}else if(x[i].marks[j]>=55 && x[i].marks[j]<70){
+			cout<<"B\n";
+		}else{
+			cout<<"A\n";
+		}
+	}system("pause");
 }
