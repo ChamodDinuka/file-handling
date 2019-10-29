@@ -189,3 +189,37 @@ void sub_sum(){
 	system("pause");
 }
 }
+void save(){
+	ofstream out("summdata.txt");
+    
+	float a,b,c,d,f;
+	for(i=0;i<MAX;i++){
+	float numA=0,numB=0,numC=0,numD=0,numF=0;
+	for(j=0;j<x[i].num;j++){
+		if(x[i].marks[j]<30){
+			numF++;
+		}else if(x[i].marks[j]>=30 && x[i].marks[j]<40){
+			numD++;
+		}else if(x[i].marks[j]>=40 && x[i].marks[j]<55){
+			numC++;
+		}else if(x[i].marks[j]>=55 && x[i].marks[j]<70){
+			numB++;
+		}else{
+			numA++;
+		}
+    }a=(numA/x[i].num)*100.0;
+     a=((float)((int)(a*10)))/10;
+     b=(numB/x[i].num)*100.0;
+     b=((float)((int)(b*10)))/10;
+     c=(numC/x[i].num)*100.0;
+     c=((float)((int)(c*10)))/10;
+     d=(numD/x[i].num)*100;
+     d=((float)((int)(d*10)))/10;
+     f=(numF/x[i].num)*100;
+     f=((float)((int)(f*10)))/10;
+     out<<x[i].subname<<" "<<x[i].num<<" A "<<a<<"% B "<<b<<"% C "<<c<<"% D "<<d<<"% F "<<f<<"%"<<endl;
+}
+ out.close();
+ cout<<"\nsummaries of the all subject have been stored in 'summdata.txt'\n\n";
+system("pause");
+}
