@@ -147,3 +147,45 @@ if(count==compair){
 }
  system("pause");
 }
+void sub_sum(){
+	int ave=0,numA=0,numB=0,numC=0,numD=0,numF=0,i=0;
+	string name;
+	float SD,var=0;
+	cout<<"enter subject code"<<endl;
+	cin>>name;
+	while(x[i].subname!=name){
+		i=i+1;
+			if(i==MAX){
+		
+    	cout<<"\nERROR :subject code is not found \n";
+    	break;}
+	}
+	if(i!=MAX){
+	
+	for(j=0;j<x[i].num;j++){
+		ave=ave+(x[i].marks[j]/x[i].num);
+	}for(j=0;j<x[i].num;j++){
+		if(x[i].marks[j]<30){
+			numF++;
+		}else if(x[i].marks[j]>=30 && x[i].marks[j]<40){
+			numD++;
+		}else if(x[i].marks[j]>=40 && x[i].marks[j]<55){
+			numC++;
+		}else if(x[i].marks[j]>=55 && x[i].marks[j]<70){
+			numB++;
+		}else{
+			numA++;
+		}
+}
+    for(j=0;j<x[i].num;j++){
+    	var=((float)x[i].marks[j]-ave)*((float)x[i].marks[j]-ave)/x[i].num+var;
+	} SD=sqrt(var);
+	cout<<"\nAvearge = "<<ave<<endl;
+	cout<<"Standed deviation = "<<SD<<endl;
+	cout<<"Number of A's : "<<numA<<"\nNumber of B's : "<<numB<<"\nNumber of C's : "<<numC<<endl;
+	cout<<"Number of D's : "<<numD<<"\nNumber of A's : "<<numF<<endl<<endl;
+	
+}else{
+	system("pause");
+}
+}
