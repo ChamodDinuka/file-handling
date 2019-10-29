@@ -22,8 +22,8 @@ subject x[10];
 int i=0,j=0,k,n,MAX;
 void Display_sub();
 void Display_stu();
-//void sub_sum();
-//void save();
+void sub_sum();
+void save();
 int main(){
  	ifstream get("sujdata.txt");
  		string subname;
