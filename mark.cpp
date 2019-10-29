@@ -21,7 +21,7 @@ const int MAXSTUDENT=100;
 subject x[10];
 int i=0,j=0,k,n,MAX;
 void Display_sub();
-//void Display_stu();
+void Display_stu();
 //void sub_sum();
 //void save();
 int main(){
@@ -69,7 +69,7 @@ int main(){
 	    			Display_sub();
 	    			break;
 	    		case 2:
-	    		//	Display_stu();
+	    			Display_stu();
 	    			break;
 	    		case 3:
 	    		//	sub_sum();
@@ -113,4 +113,37 @@ void Display_sub(){
 			cout<<"A\n";
 		}
 	}system("pause");
+}
+void Display_stu(){
+	int sn;
+	int count=0,compair=0;
+	cout<<"Enter the student number\n";
+	cin>>sn;
+	for(i=0;i<MAX;i++){
+		compair=x[i].num+compair;
+		for(j=0;j<x[i].num;j++){
+			if(sn==x[i].regnum[j]){
+				cout<<x[i].subname<<" "<<x[i].marks[j]<<" ";
+				if(x[i].marks[j]<30){
+				cout<<"F\n";
+				}else if(x[i].marks[j]>=30 && x[i].marks[j]<40){
+				cout<<"D\n";
+				}else if(x[i].marks[j]>=40 && x[i].marks[j]<55){
+				cout<<"C\n";
+				}else if(x[i].marks[j]>=55 && x[i].marks[j]<70){
+				cout<<"B\n";
+				}else{
+				cout<<"A\n";
+				}break;
+			
+			}else{
+				count++;
+		    }
+			}
+		
+	}
+if(count==compair){
+	cout<<"\nIndex not found\n";
+}
+ system("pause");
 }
